@@ -1,0 +1,33 @@
+.container{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: #224957;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+}
+
+input{
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #7064e5;
+    border-radius: 10px;
+    width: 250px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-sizing: border-box;
+    background-color: #f4f6f8;
+    color: #7064e5;
+}
+
+.text{
+    margin-left: 18px;
+}
+

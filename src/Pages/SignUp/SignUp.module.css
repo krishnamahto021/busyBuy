@@ -1,0 +1,13 @@
+.container{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #224957;
+    font-weight: 1.2rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
