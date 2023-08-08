@@ -11,6 +11,7 @@
     height: 15rem;
     padding: 4px;
     color: #224957;
+    z-index: 5000;
 }
 
 .category{

@@ -1,0 +1,9 @@
+.itemList{
+    display: grid;
+    grid-gap: 2rem;
+    gap: 2rem;
+    grid-template-columns: repeat(3,1fr);
+    margin: -10rem 15rem;
+    left: 5rem; 
+    position: relative;   
+}

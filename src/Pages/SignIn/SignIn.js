@@ -12,12 +12,14 @@ export const SignIn = () => {
               placeholder="Enter Email"
               required
               name="email"
+              className={styles.input}
             /> <br />
             <input
               type="password"
               placeholder="Enter Password"
               required
               name="password"
+              className={styles.input}
             /> <br />
             <SignInButton text={'Sign In'}/>
             <br />

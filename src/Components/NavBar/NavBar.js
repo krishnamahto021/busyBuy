@@ -10,11 +10,11 @@ export const NavBar = () => {
 
         <div className={styles.rightContainer}>
           <a href="/" className={styles.homeIcon}>
-            <img src={home} alt="buybusy" />
+            <img src={home} alt="buybusy" className={styles.img}/>
             <span className={styles.text}>Home</span>
           </a>
           <a href='sign-in' className={styles.authentication}>
-            <img src={signIn} alt="signIn" />
+            <img src={signIn} alt="signIn"  className={styles.img}/>
             <span className={styles.text}>SignIn</span>
           </a>
         </div>

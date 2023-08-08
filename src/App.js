@@ -1,18 +1,19 @@
 import { NavBar } from "./Components/NavBar/NavBar";
 import { SearchBar } from "./Components/SearchBar/SearchBar";
 import { SideBar } from "./Components/SideBar/SideBar";
+import { ItemList } from "./Pages/ItemList/ItemList";
 import { SignIn } from "./Pages/SignIn/SignIn";
 import { SignUp } from "./Pages/SignUp/SignUp";
 
 function App() {
   return (
     <div className="App">
-    <NavBar/>
-    {/* <NavBar/>
-    <SearchBar/>
-    <SideBar/> */}
-    <SignIn/>
-    {/* <SignUp/> */}
+      <NavBar />
+      <SearchBar />
+      <SideBar />
+      <ItemList/>
+      {/* <SignIn/> */}
+      {/* <SignUp/> */}
     </div>
   );
 }

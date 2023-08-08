@@ -12,18 +12,21 @@ export const SignUp = () => {
             name="name"
             placeholder="Enter Your Name"
             required
+            className={styles.input}
           />
           <input
             type="email"
             name="email"
             placeholder="Enter your email"
             required
+            className={styles.input}
           />
           <input
             type="password"
             name="password"
             placeholder="Enter your password"
             required
+            className={styles.input}
           />
           <SignInButton text={"Sign Up"} />
         </form>
