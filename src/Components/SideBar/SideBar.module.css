@@ -1,0 +1,43 @@
+.sideBar{
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0fc;
+    left: 0;
+    border-radius: 10px;
+    text-align: center;
+    top: 30%;
+    width: 15rem;
+    height: 15rem;
+    padding: 4px;
+    color: #224957;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    font-weight: 550;
+    margin: 5px;
+    gap: 0.3rem;
+}
+
+.text{
+    margin: 4px;
+    padding: 2px;
+}
+
+.price{
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+
+}
+
+.filter{
+    display: flex;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.filterText{
+    margin-left: 2rem;
+}
