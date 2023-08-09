@@ -10,6 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,9 +74,9 @@ export const SignIn = () => {
             <br />
             <SignInButton text={"Sign In"} />
             <br />
-            <a href="/users/sign-in" className={styles.text}>
+            <Link to="/users/sign-up" className={styles.text}>
               Or Sign Up Instead
-            </a>
+            </Link>
           </form>
         </div>
       </div>

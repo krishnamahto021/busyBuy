@@ -10,7 +10,7 @@ export function useUserContextValue() {
 
 export const CustomUserContext = ({ children }) => {
     const [isAuthenticated,setIsAuthenticated] = useState(false);
-    console.log(isAuthenticated);
+    console.log(isAuthenticated);   
 
   return (
     <>

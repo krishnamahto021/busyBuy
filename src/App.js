@@ -1,28 +1,31 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import { NavBar } from "./Components/NavBar/NavBar";
-import { SearchBar } from "./Components/SearchBar/SearchBar";
-import { SideBar } from "./Components/SideBar/SideBar";
-import { ItemList } from "./Pages/ItemList/ItemList";
 import { SignIn } from "./Pages/SignIn/SignIn";
 import { SignUp } from "./Pages/SignUp/SignUp";
 import { CustomUserContext } from "./userAuthenticationContext";
-import { ToastContainer,toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Home } from "./Pages/Home/Home";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path:'/',
+      element:<NavBar/>,
+      children:[
+        {index:true,element:<Home/>},
+        {path:'/users/sign-up',element:<SignUp/>},
+        {path:'/users/sign-in',element:<SignIn/>}
+      ]
+    }
+  ]);
   return (
     <>
-
       <CustomUserContext>
         <div className="App">
-        <ToastContainer/>
-          {/* <NavBar />
-      <SearchBar />
-      <SideBar />
-      <ItemList/> */}
-          <SignIn/>
-          {/* <SignUp/> */}
+          <ToastContainer />
+          <RouterProvider router={router} />
         </div>
       </CustomUserContext>
     </>
