@@ -5,12 +5,18 @@ import { ItemList } from "./Pages/ItemList/ItemList";
 import { SignIn } from "./Pages/SignIn/SignIn";
 import { SignUp } from "./Pages/SignUp/SignUp";
 import { CustomUserContext } from "./userAuthenticationContext";
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function App() {
   return (
     <>
+
       <CustomUserContext>
         <div className="App">
+        <ToastContainer/>
           {/* <NavBar />
       <SearchBar />
       <SideBar />

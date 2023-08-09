@@ -9,6 +9,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { toast } from "react-toastify";
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,14 +30,14 @@ export const SignIn = () => {
       querySnapShot.forEach((doc) => {
         if (doc.data().password === password) {
           setIsAuthenticated(true);
-          console.log("wlcome");
+          toast.success('Logged in successfully');
         } else {
           setIsAuthenticated(false);
-          console.log("wrong password");
+          toast.error('Wrong Password!');
         }
       });
     } else {
-      console.log("Email not valid");
+      toast.error("Email not Registered!");
     }
     clearInput();
   }
