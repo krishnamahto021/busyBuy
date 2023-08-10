@@ -59,3 +59,9 @@ a {
     color: black;
   }
 }
+
+.cartCount{
+  position: relative;
+  left:-5px;
+  top:-23px;
+}

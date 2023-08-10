@@ -4,9 +4,10 @@ import { NavBar } from "./Components/NavBar/NavBar";
 import { SignIn } from "./Pages/SignIn/SignIn";
 import { SignUp } from "./Pages/SignUp/SignUp";
 import { CustomUserContext } from "./userAuthenticationContext";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Home } from "./Pages/Home/Home";
+import { Cart } from "./Pages/Cart/Cart";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,7 +17,8 @@ function App() {
       children:[
         {index:true,element:<Home/>},
         {path:'/users/sign-up',element:<SignUp/>},
-        {path:'/users/sign-in',element:<SignIn/>}
+        {path:'/users/sign-in',element:<SignIn/>},
+        {path:'/users/cart',element:<Cart/>}
       ]
     }
   ]);

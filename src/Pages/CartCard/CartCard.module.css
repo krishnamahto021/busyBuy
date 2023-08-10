@@ -1,0 +1,48 @@
+.container{
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 15px 20px;
+    height: 25rem;
+}
+
+.imgContainer{
+    width: 19rem;
+    height: 19rem;
+    padding: 0.1rem;
+    margin: 1rem;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 15px 20px;
+}
+
+.img{
+    width: 18rem;
+    height: 18rem;
+}
+
+.info{
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #7064e5;
+}
+
+.price{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.qty{
+    font-size: 1.8rem;
+    font-weight: light;
+    margin: 2px;
+}
+
+.total{
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 2px;
+}
+
