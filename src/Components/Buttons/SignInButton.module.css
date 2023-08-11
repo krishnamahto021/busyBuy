@@ -8,4 +8,8 @@
     font-size: 1.2rem;
     color:#fff ;
     background-color: #7064e5;
+    &:hover{
+        background-color: white;
+        color: black;
+    }
 }

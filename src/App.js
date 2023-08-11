@@ -8,6 +8,7 @@ import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Home } from "./Pages/Home/Home";
 import { Cart } from "./Pages/Cart/Cart";
+import { CustomCartContext } from "./cartContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,10 +26,12 @@ function App() {
   return (
     <>
       <CustomUserContext>
+      <CustomCartContext>
         <div className="App">
           <ToastContainer />
           <RouterProvider router={router} />
         </div>
+        </CustomCartContext>
       </CustomUserContext>
     </>
   );

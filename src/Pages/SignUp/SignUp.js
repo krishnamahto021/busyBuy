@@ -3,18 +3,27 @@ import { SignInButton } from "../../Components/Buttons/SignInButton";
 import { useState } from "react";
 import { addDoc, collection,} from "firebase/firestore";
 import { db } from "../../firebaseinit";
+import { toast } from "react-toastify";
 
 export const SignUp = () => {
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+  const [cartArray,setCartArray] = useState([{}]);
+
+  function clearInputs(){
+    setName("");
+    setEmail("");
+    setPassword("");
+  }
 
   async function handleSubmit(e){
     e.preventDefault();
-
     // to add user into database
     const docRef = collection(db,'users');
-    await addDoc(docRef,{name,email,password});
+    await addDoc(docRef,{name,email,password,cartArray});
+    clearInputs();
+    toast.success("User Signed Up Successfully");
   }
   return (
     <>

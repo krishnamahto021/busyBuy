@@ -1,16 +1,18 @@
 import styles from "./Item.module.css";
-import { SignInButton } from "../../Components/Buttons/SignInButton";
+import { useCartContextValue } from "../../cartContext";
 
-export const Item = () => {
+export const Item = (props) => {
+  const {item} = props;
+  const {handleAddToCart} = useCartContextValue();
   return (
     <>
       <div className={styles.item}>
-        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="item" className={styles.img} />
+        <img src={item.url} alt={item.name} className={styles.img} />
         <div className={styles.container}>
-          <span className={styles.name}>Bag</span>
-          <span className={styles.price}>&#8377; 500</span>
-        </div>
-        <SignInButton text={"Add to Cart"} />
+          <span className={styles.name}>{item.name}</span>
+          <span className={styles.price}>&#8377; {item.price}</span>
+        </div> 
+        <button className={styles.btn} onClick={()=>handleAddToCart(item)}>Add to Cart</button>
       </div>
     </>
   );

@@ -14,7 +14,8 @@ import { Link } from "react-router-dom";
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setIsAuthenticated } = useUserContextValue();
+  const [cartArray,setCartArray] = useState([{}]);
+  const { setIsAuthenticated,setUser } = useUserContextValue();
 
   function clearInput(){
     setEmail('');
@@ -30,7 +31,9 @@ export const SignIn = () => {
     if (!querySnapShot.empty) {
       querySnapShot.forEach((doc) => {
         if (doc.data().password === password) {
+          const id = doc.id;
           setIsAuthenticated(true);
+          setUser({email,password,cartArray,id});
           toast.success('Logged in successfully');
         } else {
           setIsAuthenticated(false);

@@ -4,13 +4,15 @@ import signIn from "../../assets/signin.png";
 import cart from '../../assets/cart.png';
 import { Link, Outlet } from "react-router-dom";
 import { useUserContextValue } from "../../userAuthenticationContext";
+import { useCartContextValue } from "../../cartContext";
 
 export const NavBar = () => {
   const {isAuthenticated} = useUserContextValue();
+  const {cartCount} = useCartContextValue();
   return (
     <>
       <div className={styles.container}>
-        <a href="/" className={styles.leftContainer}>BusyBuy</a>
+        <Link to="/" className={styles.leftContainer}>BusyBuy</Link>
 
         <div className={styles.rightContainer}>
           <Link to="/" className={styles.homeIcon}>
@@ -25,7 +27,7 @@ export const NavBar = () => {
           {isAuthenticated?
             <Link to='/users/cart' className={styles.authentication}>
             <img src={cart} alt="signIn"  className={styles.img}/>
-            <span className={styles.cartCount}>0</span>
+            <span className={styles.cartCount}>{cartCount}</span>
           </Link>
           :null}
         </div>
