@@ -9,7 +9,6 @@ export const SignUp = () => {
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
-  const [cartArray,setCartArray] = useState([{}]);
 
   function clearInputs(){
     setName("");
@@ -21,7 +20,7 @@ export const SignUp = () => {
     e.preventDefault();
     // to add user into database
     const docRef = collection(db,'users');
-    await addDoc(docRef,{name,email,password,cartArray});
+    await addDoc(docRef,{name,email,password});
     clearInputs();
     toast.success("User Signed Up Successfully");
   }

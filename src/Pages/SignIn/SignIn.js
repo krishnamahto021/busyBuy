@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [cartArray,setCartArray] = useState([{}]);
   const { setIsAuthenticated,setUser } = useUserContextValue();
 
   function clearInput(){
@@ -33,7 +32,7 @@ export const SignIn = () => {
         if (doc.data().password === password) {
           const id = doc.id;
           setIsAuthenticated(true);
-          setUser({email,password,cartArray,id});
+          setUser({email,password,id});
           toast.success('Logged in successfully');
         } else {
           setIsAuthenticated(false);

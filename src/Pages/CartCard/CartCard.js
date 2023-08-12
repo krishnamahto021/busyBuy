@@ -1,8 +1,11 @@
-import { SignInButton } from "../../Components/Buttons/SignInButton";
 import styles from "./CartCard.module.css";
+import { useCartContextValue } from "../../cartContext";
+
+
 export const CartCard = (props) => {
-  const { item, total } = props;
-  return (
+  const { item} = props;
+  const {handleRemoveFromCart} = useCartContextValue();
+    return (
     <>
       <div className={styles.container}>
         <div className={styles.imgContainer}>
@@ -11,9 +14,10 @@ export const CartCard = (props) => {
         <div className={styles.info}>
           <p className={styles.price}>Price: &#8377; {item.price}</p>
           <p className={styles.qty}>Quantity: {item.qty}</p>
-          <p className={styles.total}>Total: {total}</p>
+          <p className={styles.total}>Total: &#8377; {item.qty*item.price}</p>
         </div>
-        <SignInButton text={"Buy Now"}/>
+        <button className={styles.btn} >Buy Now</button><br />
+        <button className={styles.btn} onClick={()=>handleRemoveFromCart(item)}>Remove</button>
       </div>
     </>
   );
