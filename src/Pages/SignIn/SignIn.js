@@ -2,19 +2,11 @@ import { useState } from "react";
 import { SignInButton } from "../../Components/Buttons/SignInButton";
 import styles from "./SignIn.module.css";
 import { useUserContextValue } from "../../userAuthenticationContext";
-import { db } from "../../firebaseinit";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
-import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setIsAuthenticated,setUser } = useUserContextValue();
+  const { signInUser } = useUserContextValue();
 
   function clearInput(){
     setEmail('');
@@ -25,23 +17,7 @@ export const SignIn = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     // get the specified user from the database if present
-    const q = query(collection(db, "users"), where("email", "==", email));
-    const querySnapShot = await getDocs(q);
-    if (!querySnapShot.empty) {
-      querySnapShot.forEach((doc) => {
-        if (doc.data().password === password) {
-          const id = doc.id;
-          setIsAuthenticated(true);
-          setUser({email,password,id});
-          toast.success('Logged in successfully');
-        } else {
-          setIsAuthenticated(false);
-          toast.error('Wrong Password!');
-        }
-      });
-    } else {
-      toast.error("Email not Registered!");
-    }
+    signInUser(email,password);
     clearInput();
   }
   return (

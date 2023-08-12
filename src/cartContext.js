@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useUserContextValue } from "./userAuthenticationContext";
 import { toast } from "react-toastify";
 import { db } from "./firebaseinit";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 
 const cartContext = createContext();
 
@@ -29,13 +29,17 @@ export function CustomCartContext({ children }) {
 
   // load the cart items from the database
   async function loadCartFromFireStore() {
-    const userDocRef = doc(db, "users", user.id);
+    const userDocRef = doc(db, "users",user.uid);
     const userDocSnapShot = await getDoc(userDocRef);
+
     if (userDocSnapShot.exists()) {
       const userData = userDocSnapShot.data();
       const signedInUserCartArray = userData.cartArray || [];
       setCart(signedInUserCartArray);
       setCartCount(signedInUserCartArray.length);
+    } else {
+      setCart([]);
+      setCartCount(0);
     }
   }
 
@@ -60,7 +64,7 @@ export function CustomCartContext({ children }) {
 
       // set local and the firestore cartArray
 
-      const docRef = doc(db, "users", user.id);
+      const docRef = doc(db, "users", user.uid);
       await updateDoc(docRef, {
         cartArray: updatedCart,
       });
@@ -90,7 +94,7 @@ export function CustomCartContext({ children }) {
         }
       }
       // modify local and the fireabase store
-      const docRef = doc(db, "users", user.id);
+      const docRef = doc(db, "users", user.uid);
       await updateDoc(docRef, {
         cartArray: updatedCart,
       });
